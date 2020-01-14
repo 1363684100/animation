@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>鼠标hover图片CSS3动画特效</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+	<style type="text/css">
+		.demo{
+			padding: 2em 0;
+		}
+		.box{
+		    text-align: center;
+		    overflow: hidden;
+		    position: relative;
+		}
+		.box:after{
+		    content: "";
+		    width: 100%;
+		    height: 100%;
+		    background-color: rgba(0,63,91,0.6);
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    opacity: 0;
+		    transition: all 0.5s ease 0s;
+		}
+		.box:hover:after{
+		    opacity: 1;
+		}
+		.box img{
+		    width: 100%;
+		    height: auto;
+		}
+		.box .box-content{
+		    width: 100%;
+		    background: #255773;
+		    padding: 10px 0;
+		    color: #d5f7ff;
+		    position: absolute;
+		    bottom: -100%;
+		    left: 0;
+		    z-index: 1;
+		    transition: all 0.5s ease 0s;
+		}
+		.box:hover .box-content{
+		    bottom: 0;
+		}
+		.box .title{
+		    font-size: 22px;
+		    font-weight: 700;
+		    margin: 0 0 8px 0;
+		    text-transform: uppercase;
+		}
+		.box .post{
+		    display: block;
+		    font-size: 15px;
+		    text-transform: capitalize;
+		}
+		.box .social{
+		    width: 100%;
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    z-index: 1;
+		}
+		.box .social li{
+		    display: inline-block;
+		    margin-right: 7px;
+		    position: relative;
+		    transform: translateY(-100px);
+		    transition: all 0.5s ease 0s;
+		}
+		.box:hover .social li:first-child{
+		    transition-delay: 0.5s;
+		}
+		.box:hover .social li:last-child{
+		    transition-delay: 0.8s;
+		}
+		.box .social li:before{
+		    content: "";
+		    position: absolute;
+		    width: 1px;
+		    height: 50px;
+		    background: #f1e7c3;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    margin: 0 auto;
+		}
+		.box:hover .social li{
+		    transform: translateY(0);
+		}
+		.box .social li a{
+		    display: block;
+		    width: 40px;
+		    height: 40px;
+		    line-height: 40px;
+		    border-radius: 50%;
+		    background: #f1e7c3;
+		    font-size: 20px;
+		    font-weight: 700;
+		    color: #003f5b;
+		    margin-top: 50px;
+		    opacity: 1;
+		    transition: all 0.3s ease 0s;
+		}
+		.box:hover .social li a{
+		    opacity: 1;
+		}
+		.box .social li a:hover{
+		    background: #ff9420;
+		    color: #fff;
+		}
+		@media only screen and (max-width:990px){
+		    .box{ margin-bottom: 30px; }
+		}
+	</style>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>CSS3动画特效<span>鼠标hover</span></h1>
+			<div class="htmleaf-demo center">
+			  <a href="index.html">Demo1</a>
+			  <a href="index2.html" class="current">Demo2</a>
+			</div>
+		</header>
+		<div class="demo">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-md-4 col-sm-6">
+		                    <div class="box">
+		                        <img src="img/2.jpg">
+		                        <div class="box-content">
+		                            <h3 class="title">CSS动画特效</h3>
+		                            <span class="post">translate</span>
+		                        </div>
+		                        <ul class="social">
+		                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+		                            <li><a href="#"><i class="fa fa-link"></i></a></li>
+		                        </ul>
+		                    </div>
+		                </div>
+
+		                <div class="col-md-4 col-sm-6">
+		                    <div class="box">
+		                        <img src="img/1.jpg">
+		                        <div class="box-content">
+		                            <h3 class="title">CSS动画特效</h3>
+		                            <span class="post">translate</span>
+		                        </div>
+		                        <ul class="social">
+		                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+		                            <li><a href="#"><i class="fa fa-link"></i></a></li>
+		                        </ul>
+		                    </div>
+		                </div>
+
+		                <div class="col-md-4 col-sm-6">
+		                    <div class="box">
+		                        <img src="img/3.jpg">
+		                        <div class="box-content">
+		                            <h3 class="title">CSS动画特效</h3>
+		                            <span class="post">translate</span>
+		                        </div>
+		                        <ul class="social">
+		                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+		                            <li><a href="#"><i class="fa fa-link"></i></a></li>
+		                        </ul>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+	</div>
+	
+</body>
+</html>
