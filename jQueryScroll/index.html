@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>炫酷视差特效</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<style type="text/css">
+	body,html{
+	  width: 100%;
+	  height: 100%;
+	  overflow: hidden;
+	  background: black;
+	}
+	#bg1{
+	  background: url(img/bg1.jpg) center center;
+	  background-size: contain;
+	}
+	#bg2{
+	  background: url(img/bg2.png) no-repeat;
+	  background-size: contain;
+	}
+	#cage{background: url(img/cage.png);}
+	#man{background: url(img/man.png);}
+	#bird1{background: url(img/bird1.png);}
+	#bird2{background: url(img/bird2.png);}
+	#bird3{background: url(img/bird3.png);}
+	#bird4{ background: url(img/bird4.png);}
+	#bird5{background: url(img/bird5.png);}
+	#bird6{background: url(img/bird6.png);}
+	#bird7{background: url(img/bird7.png);}
+	#bird8{background: url(img/bird8.png);}
+	#bird9{background: url(img/bird9.png);}
+	</style>
+</head>
+<body>
+	<script src='js/stopExecutionOnTimeout.js?t=1'></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src='js/Sprite3D.js'></script>
+	<script>
+	var ww,wh;
+	function init(){
+	  t = 0;
+	ww = window.innerWidth;
+	wh = window.innerHeight;
+
+	container = Sprite3D.stage().appendChild(Sprite3D.box( 0, 0, 0, "cube" ));
+
+
+	bg1 = container.appendChild(Sprite3D.create("bg1").size(ww,wh).y(-wh/2).x(-ww/2).z(0).update());
+	bg2 = container.appendChild(Sprite3D.create("bg2").size(ww/1.2,ww/12.17).y(wh/2-ww/11).x(-ww/2.4).z(60).update());
+
+	cage = container.appendChild(Sprite3D.create("cage").size(617,679).y(-309).x(-340).z(30).update());
+	man = container.appendChild(Sprite3D.create("man").size(617,679).y(-309).x(-340).z(80).update());
+
+	bird1 = container.appendChild(Sprite3D.create("bird1").size(617,679).y(-309).x(-340).z(80).transformOrigin(157,390).rotationX(30).update());
+	bird2 = container.appendChild(Sprite3D.create("bird2").size(617,679).y(-309).x(-340).z(80).transformOrigin(157,390).rotationX(30).update());
+	bird3 = container.appendChild(Sprite3D.create("bird3").size(617,679).y(-309).x(-340).z(80).transformOrigin(157,390).update());
+	bird4 = container.appendChild(Sprite3D.create("bird4").size(617,679).y(-309).x(-340).z(80).transformOrigin(157,390).rotationX(30).update());
+	bird5 = container.appendChild(Sprite3D.create("bird5").size(617,679).y(-309).x(-330).z(80).transformOrigin(157,395).rotationX(30).update());
+
+	bird6 = container.appendChild(Sprite3D.create("bird6").size(617,679).y(-309).x(-330).z(80).transformOrigin(414,368).update());
+	bird7 = container.appendChild(Sprite3D.create("bird7").size(617,679).y(-309).x(-330).z(80).transformOrigin(417,374).update());
+	bird8 = container.appendChild(Sprite3D.create("bird8").size(617,679).y(-309).x(-330).z(80).transformOrigin(419,372).update());
+	bird9 = container.appendChild(Sprite3D.create("bird9").size(617,679).y(-309).x(-340).z(80).transformOrigin(425,374).update());
+
+
+	var x,y,z,w;
+
+
+	$("body").mousemove(function move(e){
+
+	  x = e.clientX;
+	  y = e.clientY;
+
+	  //En haut à gauche
+	  if(x<ww/2){
+	    x = Math.abs(x-ww/2);
+	    container.rotationY(-x/90).update();
+	  }
+
+	  if(x>ww/2){
+	    x = x-ww/2;
+	    container.rotationY(x/90).update();
+	  }
+	  if(y<wh/2){
+	    y = Math.abs(y-wh/2);
+	    container.rotationX(y/80).update();
+	  }
+	  if(y>wh/2){
+	    y = y-wh/2;
+	    container.rotationX(-y/80).update();
+	  }
+	});
+
+	var i =0;
+	test = setInterval(function(){
+	  i+=.02;
+	  bird1.rotationX(Math.cos(i)).update();
+	  bird2.rotationX(-Math.cos(i/.59)*2.168).update();
+	  bird3.rotationZ(-Math.cos(i/.83)).rotationX(-Math.cos(i/.59)).update();
+	  bird4.rotationX(-Math.cos(i/.35)*1.988).rotationY(Math.cos(i/.83)*20).update();
+	  bird5.rotationX(-Math.cos(i/.35)*4.988-30).rotationZ(-Math.cos(i/.59)*5.596).update();
+
+	  bird6.rotationY(-Math.cos(i/.5)*10).rotationZ(-Math.cos(i/.59)*5.596).update();
+	  bird7.rotationX(-Math.cos(i/.8)*7).update();
+	  bird8.rotationZ(-Math.cos(i/2)*3).update();
+	  bird9.rotationY(Math.cos(i/.9)*3).rotationX(-Math.cos(i/7)*4).rotationZ(-Math.cos(i/8)*3).update();
+
+
+	}, 20);
+	}
+	init();
+
+	window.onresize = function(){
+	 	ww = window.innerWidth;
+		wh = window.innerHeight;
+	  $("body").empty();
+	  init();
+	};
+	</script>
+</body>
+</html>
