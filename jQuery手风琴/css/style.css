@@ -1,0 +1,99 @@
+/*
+Theme Name: 
+
+Theme URI: 
+
+Description: 
+
+Version: 1.0
+
+Author: WebCastle
+
+Author URI: http://webcastletech.com/
+
+*/
+
+a:focus{ outline:none;}
+input:focus{ outline:none;}
+textarea:focus{ outline:none;}
+::-moz-selection
+{
+	background:#9cd167;
+	color:#fff
+}
+::selection{
+	background:#9cd167;
+	color:#fff
+}
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+ul , ol{
+	margin:0px; padding:0px;
+}
+
+li{
+	padding:0px;
+	margin:0px;
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+h1, h2, h3, h4, h5, h6 {
+	
+	font-weight: normal;
+	padding:0px;
+	margin:0px;
+}
+p{
+	margin:0px;
+	padding:0px;
+}
+body 
+{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size:12px;
+	line-height:18px;
+}
+.banner-container
+{
+	overflow:hidden;
+	position:relative;
+	/*width:1024px;
+	margin:25px auto;*/
+}
+.banner-container ul
+{
+	height: 639px;
+}
+.banner-container li
+{
+	float:left;
+	overflow:hidden;
+	cursor:pointer;
+	position:relative;
+	z-index:9;
+}
+.banner-container li a
+{
+	display:block;
+	padding:0px;
+	margin:0px;
+}
+.banner-container li span.overlay
+{
+	background:url(../images/bg-overlay.png) repeat;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+
